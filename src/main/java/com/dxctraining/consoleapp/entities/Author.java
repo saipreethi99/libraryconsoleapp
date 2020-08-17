@@ -9,8 +9,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Authors")
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 public class Author {
+	
+	@Id
+	@GeneratedValue
 	private String id;
 	private String name;
 
