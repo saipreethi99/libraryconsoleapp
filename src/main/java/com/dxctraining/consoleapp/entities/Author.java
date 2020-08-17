@@ -35,6 +35,23 @@ public class Author {
 		this.name = name;
 	}
 
-}
+	@Override
+	public boolean equals(Object arg) {
+		if (this == arg) {
+			return true;
+		}
 
-	
+		if (arg == null || !(arg instanceof Book)) {
+			return false;
+		}
+
+		Author that = (Author) arg;
+		boolean isequal = this.id == that.id;
+		return isequal;
+	}
+
+	@Override
+	public String hashCode() {
+	return id;
+	}
+}
