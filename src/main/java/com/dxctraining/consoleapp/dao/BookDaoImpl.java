@@ -1,15 +1,12 @@
 package com.dxctraining.consoleapp.dao;
 
-
-
 import org.springframework.stereotype.Repository;
-
 import com.dxctraining.consoleapp.entities.Book;
 import com.dxctraining.consoleapp.exceptions.BookNotFoundException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -28,6 +25,7 @@ public class BookDaoImpl implements IBookDao{
         return book;
     }
 
+    @Override
     public Book update(Book book) {
         book=entityManager.merge(book);
         return book;
@@ -38,7 +36,8 @@ public class BookDaoImpl implements IBookDao{
         entityManager.persist(book);
         
     }
-
+    
+    @Override
     public void remove(int id) {
      Book book= findById(id) ;
      entityManager.remove(book);

@@ -2,14 +2,12 @@ package com.dxctraining.consoleapp.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.dxctraining.consoleapp.dao.IBookDao;
 import com.dxctraining.consoleapp.entities.Book;
 import com.dxctraining.consoleapp.exceptions.InvalidArgumentException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import javax.transaction.Transactional;
 
 @Transactional
 @Service
@@ -24,7 +22,7 @@ public class BookServiceImpl implements IBookService {
 		return book;
 	}
 
-	
+	@Override
 	public void add(Book book) {
 		checkBook(book);
 		dao.add(book);
@@ -37,11 +35,13 @@ public class BookServiceImpl implements IBookService {
 		}
 	}
 
+	@Override
 	public void remove(int id) {
 		dao.remove(id);
 
 	}
 
+	@Override
 	public Book updateCost(int id, double cost) {
 	
 		Book book = dao.updateCost(id, cost);
@@ -56,6 +56,7 @@ public class BookServiceImpl implements IBookService {
 
 	}
 
+	
 	public void validate(Object arg) {
 		if (arg == null) {
 			throw new InvalidArgumentException("argument is null");

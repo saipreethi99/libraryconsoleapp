@@ -1,5 +1,15 @@
 package com.dxctraining.consoleapp.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Authors")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Author {
 	private String id;
 	private String name;
@@ -26,3 +36,5 @@ public class Author {
 	}
 
 }
+
+	

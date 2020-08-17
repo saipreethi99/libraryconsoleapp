@@ -3,14 +3,15 @@ package com.dxctraining.consoleapp.entities;
 import javax.persistence.*;
 
 import com.dxctraining.consoleapp.entities.Author;
-
-@Inheritance(strategy = InheritanceType.JOINED)
 @Entity
+@Table(name = "Books")
+@Inheritance(strategy = InheritanceType.JOINED)
+
 public class Book {
 
 	@Id
-	@GeneratedValue
-	private int id;
+	@GeneratedValue 
+	int id;
 	private String name;
 	private double cost;
 	private Author author;
